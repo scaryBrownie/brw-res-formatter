@@ -26,7 +26,8 @@ import {
 // Example usage in an Express route
 app.get("/example", (req, res) => {
   sendSuccessResponse(res, 200, "Data retrieved successfully", {
-    data: "example data",
+    user: { id: 1, name: "John Doe" },
+    items: ["item1", "item2"],
   });
 });
 ```
@@ -45,7 +46,8 @@ import {
 // Example usage in an Express route
 app.get("/example", (req, res) => {
   sendSuccessResponse(res, 200, "Data retrieved successfully", {
-    data: "example data",
+    user: { id: 1, name: "John Doe" },
+    items: ["item1", "item2"],
   });
 });
 ```
@@ -83,7 +85,8 @@ app.get("/example", (req, res) => {
   "status": 200,
   "message": "Data retrieved successfully",
   "data": {
-    "data": "example data"
+    "user": { "id": 1, "name": "John Doe" },
+    "items": ["item1", "item2"]
   }
 }
 ```
@@ -94,10 +97,7 @@ app.get("/example", (req, res) => {
 {
   "success": false,
   "status": 400,
-  "message": "Invalid request",
-  "error": {
-    "error": "Detailed error message"
-  }
+  "message": "Invalid request"
 }
 ```
 
