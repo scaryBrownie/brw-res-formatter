@@ -17,11 +17,17 @@ npm install brw-res-formatter
 You can use the JavaScript version by importing the functions from `file-formatter.js`:
 
 ```javascript
-import { sendResponse, sendErrorResponse, sendSuccessResponse } from 'brw-res-formatter/src/file-formatter.js';
+import {
+  sendResponse,
+  sendErrorResponse,
+  sendSuccessResponse,
+} from "brw-res-formatter/src/file-formatter.js";
 
 // Example usage in an Express route
-app.get('/example', (req, res) => {
-  sendSuccessResponse(res, 200, "Data retrieved successfully", { data: "example data" });
+app.get("/example", (req, res) => {
+  sendSuccessResponse(res, 200, "Data retrieved successfully", {
+    data: "example data",
+  });
 });
 ```
 
@@ -30,11 +36,17 @@ app.get('/example', (req, res) => {
 For TypeScript users, you can import the functions from `file-formatter.ts`:
 
 ```typescript
-import { sendResponse, sendErrorResponse, sendSuccessResponse } from 'brw-res-formatter/src/file-formatter.ts';
+import {
+  sendResponse,
+  sendErrorResponse,
+  sendSuccessResponse,
+} from "brw-res-formatter/src/file-formatter.ts";
 
 // Example usage in an Express route
-app.get('/example', (req, res) => {
-  sendSuccessResponse(res, 200, "Data retrieved successfully", { data: "example data" });
+app.get("/example", (req, res) => {
+  sendSuccessResponse(res, 200, "Data retrieved successfully", {
+    data: "example data",
+  });
 });
 ```
 
@@ -60,6 +72,34 @@ app.get('/example', (req, res) => {
 - **statusCode**: The HTTP status code (default is 200).
 - **message**: A success message (default is "Operation successful").
 - **data**: Optional data to include in the response.
+
+## Example Responses
+
+### Success Response
+
+```json
+{
+  "success": true,
+  "status": 200,
+  "message": "Data retrieved successfully",
+  "data": {
+    "data": "example data"
+  }
+}
+```
+
+### Error Response
+
+```json
+{
+  "success": false,
+  "status": 400,
+  "message": "Invalid request",
+  "error": {
+    "error": "Detailed error message"
+  }
+}
+```
 
 ## License
 
