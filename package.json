@@ -1,0 +1,33 @@
+{
+  "name": "brw-res-formatter",
+  "version": "1.0.0",
+  "description": "A simple response formatter for Express.js applications, allowing you to easily send standardized JSON responses for both success and error cases.",
+  "main": "dist/file-formatter.js",
+  "types": "dist/file-formatter.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "keywords": [
+    "express",
+    "response",
+    "formatter",
+    "json"
+  ],
+  "author": "Fatih Acan",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scaryBrownie/brw-res-formatter.git"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.0"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ]
+}
