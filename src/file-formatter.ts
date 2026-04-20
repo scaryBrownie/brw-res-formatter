@@ -1,22 +1,58 @@
-export interface ResponseData {
-  success: boolean;
-  message: string;
-  data?: any;
-}
+import type { Response, ApiResponse } from "./types";
 
-export function sendResponse(res: any, statusCode: number, success: boolean, message: string, data?: any): void {
-  const responseData: ResponseData = {
+/**
+ * Sends a standardized JSON response.
+ *
+ * @param res - Express response object
+ * @param statusCode - HTTP status code
+ * @param success - Whether the operation was successful
+ * @param message - Human-readable message
+ * @param data - Optional payload data
+ */
+export function sendResponse<T = unknown>(
+  res: Response,
+  statusCode: number,
+  success: boolean,
+  message: string,
+  data?: T,
+): void {
+  const body: ApiResponse<T> = {
     success,
+    status: statusCode,
     message,
-    data,
+    data: data !== undefined ? data : null,
   };
-  res.status(statusCode).json(responseData);
+  res.status(statusCode).json(body);
 }
 
-export function sendErrorResponse(res: any, statusCode: number = 500, message: string = "Server error"): void {
+/**
+ * Sends a standardized error response.
+ *
+ * @param res - Express response object
+ * @param statusCode - HTTP status code (default: 500)
+ * @param message - Error message (default: "Server error")
+ */
+export function sendErrorResponse(
+  res: Response,
+  statusCode: number = 500,
+  message: string = "Server error",
+): void {
   sendResponse(res, statusCode, false, message);
 }
 
-export function sendSuccessResponse(res: any, statusCode: number = 200, message: string = "Operation successful", data?: any): void {
+/**
+ * Sends a standardized success response.
+ *
+ * @param res - Express response object
+ * @param statusCode - HTTP status code (default: 200)
+ * @param message - Success message (default: "Operation successful")
+ * @param data - Optional payload data
+ */
+export function sendSuccessResponse<T = unknown>(
+  res: Response,
+  statusCode: number = 200,
+  message: string = "Operation successful",
+  data?: T,
+): void {
   sendResponse(res, statusCode, true, message, data);
 }

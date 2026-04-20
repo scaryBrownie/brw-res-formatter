@@ -1,18 +1,45 @@
 {
   "name": "brw-res-formatter",
-  "version": "1.0.0",
-  "description": "A simple response formatter for Express.js applications, allowing you to easily send standardized JSON responses for both success and error cases.",
-  "main": "dist/file-formatter.js",
-  "types": "dist/file-formatter.d.ts",
+  "version": "2.0.0",
+  "description": "A simple, type-safe response formatter for Express.js applications. Provides standardized JSON responses for both success and error cases.",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/cjs/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    }
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "build": "npm run build:cjs && npm run build:esm",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "prepublishOnly": "npm run build && npm test",
+    "lint": "eslint src/ --ext .ts",
+    "typecheck": "tsc --noEmit"
   },
   "keywords": [
     "express",
     "response",
     "formatter",
-    "json"
+    "json",
+    "api",
+    "rest",
+    "middleware",
+    "typescript",
+    "standardized-response"
   ],
   "author": "Fatih Acan",
   "license": "MIT",
@@ -20,14 +47,34 @@
     "type": "git",
     "url": "git+https://github.com/scaryBrownie/brw-res-formatter.git"
   },
-  "dependencies": {
-    "express": "^4.17.1"
+  "bugs": {
+    "url": "https://github.com/scaryBrownie/brw-res-formatter/issues"
+  },
+  "homepage": "https://github.com/scaryBrownie/brw-res-formatter#readme",
+  "peerDependencies": {
+    "express": ">=4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "express": {
+      "optional": false
+    }
   },
   "devDependencies": {
-    "typescript": "^4.0.0"
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.0",
+    "express": "^4.18.2",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.0"
   },
   "files": [
     "dist",
-    "README.md"
-  ]
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "sideEffects": false
 }
