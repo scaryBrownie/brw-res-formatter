@@ -11,7 +11,6 @@
 <p align="center">
   <a href="https://www.npmjs.com/package/brw-res-formatter"><img src="https://img.shields.io/npm/v/brw-res-formatter?color=cb3837&logo=npm&logoColor=white&label=npm" alt="npm version" /></a>
   <a href="https://www.npmjs.com/package/brw-res-formatter"><img src="https://img.shields.io/npm/dm/brw-res-formatter?color=333333&logo=npm" alt="npm downloads" /></a>
-  <a href="https://bundlephobia.com/package/brw-res-formatter"><img src="https://img.shields.io/bundlephobia/minzip/brw-res-formatter?color=44CC11&label=minzip" alt="bundle size" /></a>
   <a href="https://github.com/scaryBrownie/brw-res-formatter/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT" /></a>
   <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-Ready-3178c6?logo=typescript&logoColor=white" alt="TypeScript" /></a>
 </p>
@@ -525,5 +524,5 @@ Copyright © 2026 **Fatih Acan**
 ---
 
 <p align="center">
-  Made with ❤️ by <a href="https://github.com/scaryBrownie">scaryBrownie</a>
+  Maintained by <a href="https://github.com/scaryBrownie">scaryBrownie</a>
 </p>
